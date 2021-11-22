@@ -17,9 +17,11 @@ app.factory('Excel', function($window) {
     .controller('tong_hop_ton_vinhController', function(Excel, $timeout, $scope, $http, API, $rootScope, $location, $window) {
         // mức tôn vinh thứ 5
 
-        $http.get(API + 'getList_nguoihienmau_donvi/' + 1).then(function(response) {
-            $scope.list_1 = response.data;
+        $http.get(API + 'getList_nguoihienmau_donvi/' + 5).then(function(response) {
+            $scope.list_5 = response.data;
         });
+
+      
         
 
         $scope.xacnhan = function(tableId) {

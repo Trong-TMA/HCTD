@@ -49,61 +49,61 @@
           <li>
           <a href="dangnhap.php"> Đăng xuất </a>
           </li>
-      </ul>
-       </div>
+        </ul>
+    </div>
     
                     
-            <div class="ibox-content">
-                <h2>ĐỀ XUẤT TÔN VINH</h2>
-                <div style="text-align:right ;">
-                    <button type="button" class="btn btn-primary btn-sm add" style="margin-bottom: 0px;" ng-click="xacnhan('#tab-1')">Xác nhận</button>
-                </div>
-                <div id ="tab-1"> 
-                    <table class="table table-striped table-bordered table-hover dataTables-example">
-                        <thead style="text-align: center" >
-                            <tr >
-                                <th rowspan = "3">STT</th>
-                                <th rowspan = "3">Họ tên</th>
-                                <th rowspan = "3">Năm sinh</th>
-                                <th rowspan = "3">Nghề nghiệp</th>
-                                <th rowspan = "3">Địa chỉ</th>
-                                <th colspan = "4">BCĐ VĐHMTN tỉnh</th>
-                                <th rowspan = "3">Tổng</th>
-                            </tr>
-                            <tr>
-                                <td>Cúp thủy tinh màu đồng</td>
-                                <td>Cúp thủy tinh màu bạc</td>
-                                <td>Cúp thủy tinh màu vàng</td>
-                                <td>Cúp thủy tinh màu Kim cương</td>
-                            </tr>
-                            <tr>
-                                <td>5 lần</td>
-                                <td>10 lần</td>
-                                <td>15 lần</td>
-                                <td>20 lần</td>
-                            </tr>
-                        </thead>
-                        <tbody ng-repeat="item in list_1_5">
-                                <tr>
-                                    <td>{{item.Id}}</td>
-                                    <td>{{item.HoTen}}</td>
-                                    <td>{{item.NgaySinh}}</td>
-                                    <td>{{item.NgheNghiep}}</td>
-                                    <td>{{item.DiaChi}}</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                        </tbody>
-                        <tbody>
+    <div class="ibox-content">
+        <h2>ĐỀ XUẤT TÔN VINH</h2>
+        <div style="text-align:right ;">
+            <button type="button" class="btn btn-primary btn-sm add" style="margin-bottom: 0px;" ng-click="xacnhan('#tab-1')">Xác nhận</button>
+        </div>
+        <div id ="tab-1"> 
+            <table class="table table-striped table-bordered table-hover dataTables-example">
+                <thead style="text-align: center" >
+                    <tr >
+                        <th rowspan = "3">STT</th>
+                        <th rowspan = "3">Họ tên</th>
+                        <th rowspan = "3">Năm sinh</th>
+                        <th rowspan = "3">Nghề nghiệp</th>
+                        <th rowspan = "3">Địa chỉ</th>
+                        <th colspan = "4">BCĐ VĐHMTN tỉnh</th>
+                        <th rowspan = "3">Tổng</th>
+                    </tr>
+                    <tr>
+                        <td>Cúp thủy tinh màu đồng</td>
+                        <td>Cúp thủy tinh màu bạc</td>
+                        <td>Cúp thủy tinh màu vàng</td>
+                        <td>Cúp thủy tinh màu Kim cương</td>
+                    </tr>
+                    <tr>
+                        <td>5 lần</td>
+                        <td>10 lần</td>
+                        <td>15 lần</td>
+                        <td>20 lần</td>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="item in list_5">
+                        <tr>
+                            <td>{{item.Id}}</td>
+                            <td>{{item.HoTen}}</td>
+                            <td>{{item.NgaySinh}}</td>
+                            <td>{{item.NgheNghiep}}</td>
+                            <td>{{item.DiaChi}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                </tbody>
+                <tbody>
 
-                        </tbody>
-                    </table>
-                </div>
+                </tbody>
+            </table>
+        </div>
 
-             </div>
+    </div>
 </body>
 <!-- Mainly scripts -->
 <script src="<?php echo asset('template/js/jquery-3.1.1.min.js') ; ?>"></script>

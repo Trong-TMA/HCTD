@@ -139,4 +139,4 @@ Route::get('collection',['uses'=>'App\Exports\UsersExport@collection']);
 
 
 Route::get('getList_nguoihienmau_donvi/{id1}',['uses'=>'App\Http\Controllers\TonghoptonvinhController@getList_nguoihienmau_donvi']);
-// Route::get('getList_nguoihienmau_donvi',['uses'=>'App\Http\Controllers\TonghoptonvinhController@getList_nguoihienmau_donvi']);
+Route::get('getList_nguoihienmau',['uses'=>'App\Http\Controllers\TonghoptonvinhController@getList_nguoihienmau']);

@@ -14,24 +14,23 @@ use Maatwebsite\Excel\Facades\Excel;
 class TonghoptonvinhController extends Controller
 {
     
-    // public function getList_nguoihienmau_donvi()
-    // {
-    //    return $list_hienmaudonvi = nguoihienmau::get();
-    // }
 
     public function getList_nguoihienmau_donvi($dv)
     {
         switch ($dv) {
-            case '5':
-                $list_donvinguoihienmau = donvi_nguoihienmau::get();
-                foreach ($donvinguoihienmau as $list_donvinguoihienmau) {
-                    if($donvinguoihienmau->Id_DonVi == 5 ){
-                        
-                    }
-                }
+            case 5:
+                $list_donvi_nguoihienmau = donvi_nguoihienmau::where('Id_DonVi','=',5)->get();
+                break;
         }
-        return $list_hienmaudonvi;
+        return $list_donvi_nguoihienmau;
     }
+
+    public function getList_nguoihienmau()
+    {
+      return  $list_nguoihienmau = nguoihienmau::get();   
+    }
+
+
 
 
 }

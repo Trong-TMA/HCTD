@@ -15,14 +15,33 @@ app.factory('Excel', function($window) {
         };
     })
     .controller('tong_hop_ton_vinhController', function(Excel, $timeout, $scope, $http, API, $rootScope, $location, $window) {
-        // mức tôn vinh thứ 5
-
+        
         $http.get(API + 'getList_nguoihienmau_donvi/' + 5).then(function(response) {
             $scope.list_5 = response.data;
         });
 
-      
-        
+        $http.get(API + 'getList_nguoihienmau').then(function(response) {
+            $scope.list_nguoihienmau = response.data;
+        });
+
+
+        $scope.mergeLists = function (arr1, arr2) {
+            return arr1.concat(arr2);
+       }
+
+       $scope.Id = null;
+       $scope.HoTen = null;
+
+       $scope.ShowId = function(Id1, Id2, hoten){
+           if(Id1 == Id2){
+                $scope.Id = Id1;
+                $scope.HoTen = hoten;
+           }
+           else{
+                $scope.Id = null;
+                $scope.HoTen = null;               
+           }
+        }
 
         $scope.xacnhan = function(tableId) {
 

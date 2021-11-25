@@ -19,16 +19,12 @@ class TonghoptonvinhController extends Controller
     {
         switch ($dv) {
             case 5:
-                $list_donvi_nguoihienmau = donvi_nguoihienmau::where('Id_DonVi','=',5)->get();
+                $list_donvi_nguoihienmau = nguoihienmau::where('Id_DonVi','=',5)->get();
                 break;
         }
         return $list_donvi_nguoihienmau;
     }
 
-    public function getList_nguoihienmau()
-    {
-      return  $list_nguoihienmau = nguoihienmau::get();   
-    }
 
 
 

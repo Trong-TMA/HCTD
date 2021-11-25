@@ -84,13 +84,18 @@
                     </tr>
                 </thead>
                 <tbody >              
-                    <tr ng-repeat="item in mergeLists(list_nguoihienmau, list_5)" ng-model = "ShowId(item.Id, item.Id_NguoiHienMau,item.HoTen)">
-                        <td ng-if = "Id != null">{{Id}}</td>
-                        <td >{{HoTen}}</td>          
-                    </tr>
-                </tbody>
-                <tbody>
-
+                    <tr ng-repeat="item in list_5">
+                        <td>{{item.Id}}</td>
+                        <td>{{item.HoTen}}</td>
+                        <td>{{item.NgaySinh}}</td>
+                        <td>{{item.NgheNghiep}}</td>
+                        <td>{{item.DiaChi}}</td>
+                        <td>{{}}</td>
+                        <td>{{}}</td>
+                        <td>{{}}</td>
+                        <td>{{}}</td>
+                        <td>{{}}</td>
+                    </tr>   
                 </tbody>
             </table>
         </div>

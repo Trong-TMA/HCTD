@@ -43,6 +43,9 @@ Route::get('/ton_vinh_tu_dong_vs1', function () {
 Route::get('/tong_hop_ton_vinh', function () {
     return view('tong-hop-ton-vinh');
 });
+Route::get('/tong_hop_ton_vinh2', function () {
+    return view('tong-hop-ton-vinh2');
+});
 
 
 // api excel bệnh viện
@@ -140,3 +143,5 @@ Route::get('collection',['uses'=>'App\Exports\UsersExport@collection']);
 
 Route::get('getList_nguoihienmau_donvi/{id1}',['uses'=>'App\Http\Controllers\TonghoptonvinhController@getList_nguoihienmau_donvi']);
 Route::get('getList_nguoihienmau',['uses'=>'App\Http\Controllers\TonghoptonvinhController@getList_nguoihienmau']);
+Route::get('getList_donvi',['uses'=>'App\Http\Controllers\TonghoptonvinhController@getList_donvi']);
+

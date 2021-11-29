@@ -1,4 +1,4 @@
-var app = angular.module('tong_hop_ton_vinh-app', []).constant('API', 'http://localhost/HCTD/public/');
+var app = angular.module('tong_hop_ton_vinh2-app', []).constant('API', 'http://localhost/HCTD/public/');
 
 app.factory('Excel', function($window) {
         var uri = 'data:application/vnd.ms-excel;base64,',
@@ -14,7 +14,7 @@ app.factory('Excel', function($window) {
             }
         };
     })
-    .controller('tong_hop_ton_vinhController', function(Excel, $timeout, $scope, $http, API, $rootScope, $location, $window) {
+    .controller('tong_hop_ton_vinh2Controller', function(Excel, $timeout, $scope, $http, API, $rootScope, $location, $window) {
         
         $http.get(API + 'getList_nguoihienmau_donvi/' + 1).then(function(response) {
             $scope.list_1 = response.data;
@@ -52,9 +52,6 @@ app.factory('Excel', function($window) {
         $http.get(API + 'getList_nguoihienmau_donvi/' + 12).then(function(response) {
             $scope.list_12 = response.data;
         });
-        $http.get(API + 'getList_nguoihienmau_donvi/' + 13).then(function(response) {
-            $scope.list_13 = response.data;
-        });
         $http.get(API + 'getList_nguoihienmau_donvi/' + 14).then(function(response) {
             $scope.list_14 = response.data;
         });
@@ -74,9 +71,6 @@ app.factory('Excel', function($window) {
             $scope.list_19 = response.data;
         });
         $http.get(API + 'getList_nguoihienmau_donvi/' + 20).then(function(response) {
-            $scope.list_20 = response.data;
-        });
-        $http.get(API + 'getList_nguoihienmau_donvi/' + 21).then(function(response) {
             $scope.list_21 = response.data;
         });
         $http.get(API + 'getList_nguoihienmau_donvi/' + 22).then(function(response) {
@@ -96,6 +90,10 @@ app.factory('Excel', function($window) {
         });
         $http.get(API + 'getList_nguoihienmau_donvi/' + 27).then(function(response) {
             $scope.list_27 = response.data;
+        });
+
+        $http.get(API + 'getList_donvi').then(function(response) {
+            $scope.list_DV = response.data;
         });
 
         $scope.Tong5_1 = 0;
@@ -264,41 +262,29 @@ app.factory('Excel', function($window) {
         $scope.Tong_27 = 0;
         
         $scope.getSoLanHien1 =  function(value){
-            $scope.sl5_1 = 0;
-            $scope.sl10_1 = 0;
-            $scope.sl15_1 = 0;
-            $scope.sl20_1 = 0;
-            
-    
+
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_1 = value;
                 $scope.Tong5_1 +=1;
             }
             else{
-                $scope.sl5_1 = 0;
+                
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_1 = value;
                     $scope.Tong10_1 += 1;
                 }
                 else{
-                    $scope.sl10_1 = 0;
+
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_1 = value;
                         $scope.Tong15_1 += 1;
                     }
                     else{
-                        $scope.sl15_1 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_1 = value;
                             $scope.Tong20_1 += 1;
                         }
-                        else{
-                            $scope.sl20_1 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -306,83 +292,61 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien2 =  function(value){
-            $scope.sl5_2 = 0;
-            $scope.sl10_2 = 0;
-            $scope.sl15_2 = 0;
-            $scope.sl20_2 = 0;
-            
-    
+
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_2 = value;
                 $scope.Tong5_2 +=1;
             }
             else{
-                $scope.sl5_2 = 0;
+                
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_2 = value;
                     $scope.Tong10_2 += 1;
                 }
                 else{
-                    $scope.sl10_2 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_2 = value;
                         $scope.Tong15_2 += 1;
                     }
                     else{
-                        $scope.sl15_2 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_2 = value;
                             $scope.Tong20_2 += 1;
                         }
-                        else{
-                            $scope.sl20_2 = 0;
-                        }
                     }
+                       
                 }
             }
             $scope.Tong_2 = $scope.Tong5_2 + $scope.Tong10_2 + $scope.Tong15_2 + $scope.Tong20_2;
             
         }
         $scope.getSoLanHien3 =  function(value){
-            $scope.sl5_3 = 0;
-            $scope.sl10_3 = 0;
-            $scope.sl15_3 = 0;
-            $scope.sl20_3 = 0;
+            
+            
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_3 = value;
                 $scope.Tong5_3 +=1;
             }
             else{
-                $scope.sl5_3 = 0;
+                
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_3 = value;
                     $scope.Tong10_3 += 1;
                 }
                 else{
-                    $scope.sl10_3 = 0;
                     if(value >= 15 && value < 20){
                 
                         $scope.sl15_3 = value;
                         $scope.Tong15_3 += 1;
                     }
                     else{
-                        $scope.sl15_3 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_3 = value;
                             $scope.Tong20_3 += 1;
                         }
-                        else{
-                            $scope.sl20_3 = 0;
-                        }
+                       
                     }
                 }
             }
@@ -390,41 +354,29 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien4 =  function(value){
-            $scope.sl5_4 = 0;
-            $scope.sl10_4 = 0;
-            $scope.sl15_4 = 0;
-            $scope.sl20_4 = 0;
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_4 = value;
                 $scope.Tong5_4 +=1;
             }
             else{
-                $scope.sl5_4 = 0;
+                
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_4 = value;
                     $scope.Tong10_4 += 1;
                 }
                 else{
-                    $scope.sl10_4 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_4 = value;
                         $scope.Tong15_4 += 1;
                     }
                     else{
-                        $scope.sl15_4 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_4 = value;
                             $scope.Tong20_4 += 1;
                         }
-                        else{
-                            $scope.sl20_4 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -432,41 +384,30 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien5 =  function(value){
-            $scope.sl5_5 = 0;
-            $scope.sl10_5 = 0;
-            $scope.sl15_5 = 0;
-            $scope.sl20_5 = 0;
+            
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_5 = value;
                 $scope.Tong5_5 +=1;
             }
             else{
-                $scope.sl5_5 = 0;
+                
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_5 = value;
                     $scope.Tong10_5 += 1;
                 }
                 else{
-                    $scope.sl10_5 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_5 = value;
                         $scope.Tong15_5 += 1;
                     }
                     else{
-                        $scope.sl15_5 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_5 = value;
                             $scope.Tong20_5 += 1;
                         }
-                        else{
-                            $scope.sl20_5 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -474,41 +415,31 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien6 =  function(value){
-            $scope.sl5_6 = 0;
-            $scope.sl10_6 = 0;
-            $scope.sl15_6 = 0;
-            $scope.sl20_6 = 0;
+            
+            
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_6 = value;
                 $scope.Tong5_6 +=1;
             }
             else{
-                $scope.sl5_6 = 0;
+                
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_6 = value;
                     $scope.Tong10_6 += 1;
                 }
                 else{
-                    $scope.sl10_6 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_6 = value;
                         $scope.Tong15_6 += 1;
                     }
                     else{
-                        $scope.sl15_6 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_6 = value;
                             $scope.Tong20_6 += 1;
                         }
-                        else{
-                            $scope.sl20_6 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -516,41 +447,31 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien7 =  function(value){
-            $scope.sl5_7 = 0;
-            $scope.sl10_7 = 0;
-            $scope.sl15_7 = 0;
-            $scope.sl20_7 = 0;
+            
+            
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_7 = value;
                 $scope.Tong5_7 +=1;
             }
             else{
-                $scope.sl5_7 = 0;
+                
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_7 = value;
                     $scope.Tong10_7 += 1;
                 }
                 else{
-                    $scope.sl10_7 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_7 = value;
                         $scope.Tong15_7 += 1;
                     }
                     else{
-                        $scope.sl15_7 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_7 = value;
                             $scope.Tong20_7 += 1;
                         }
-                        else{
-                            $scope.sl20_7 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -558,41 +479,31 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien8 =  function(value){
-            $scope.sl5_8 = 0;
-            $scope.sl10_8 = 0;
-            $scope.sl15_8 = 0;
-            $scope.sl20_8 = 0;
+            
+            
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_8 = value;
                 $scope.Tong5_8 +=1;
             }
             else{
-                $scope.sl5_8 = 0;
+                
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_8 = value;
                     $scope.Tong10_8 += 1;
                 }
                 else{
-                    $scope.sl10_9 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_8 = value;
                         $scope.Tong15_8 += 1;
                     }
                     else{
-                        $scope.sl15_8 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_8 = value;
                             $scope.Tong20_8 += 1;
                         }
-                        else{
-                            $scope.sl20_8 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -600,41 +511,30 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien9 =  function(value){
-            $scope.sl5_9 = 0;
-            $scope.sl10_9 = 0;
-            $scope.sl15_9 = 0;
-            $scope.sl20_9 = 0;
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_9 = value;
                 $scope.Tong5_9 +=1;
             }
             else{
-                $scope.sl5_9 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_9 = value;
                     $scope.Tong10_9 += 1;
                 }
                 else{
                     $scope.sl10_9 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_9 = value;
                         $scope.Tong15_9 += 1;
                     }
                     else{
                         $scope.sl15_9 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_9 = value;
                             $scope.Tong20_9 += 1;
                         }
-                        else{
-                            $scope.sl20_9 = 0;
-                        }
+                       
                     }
                 }
             }
@@ -642,41 +542,27 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien10 =  function(value){
-            $scope.sl5_10 = 0;
-            $scope.sl10_10 = 0;
-            $scope.sl15_10 = 0;
-            $scope.sl20_10 = 0;
-            
-    
+        
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_10 = value;
                 $scope.Tong5_10 +=1;
             }
             else{
-                $scope.sl5_10 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_10 = value;
                     $scope.Tong10_10 += 1;
                 }
                 else{
-                    $scope.sl10_10 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_10 = value;
                         $scope.Tong15_10 += 1;
                     }
                     else{
-                        $scope.sl15_10 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_10 = value;
                             $scope.Tong20_10 += 1;
                         }
-                        else{
-                            $scope.sl20_10 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -684,41 +570,28 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien11 =  function(value){
-            $scope.sl5_11 = 0;
-            $scope.sl10_11 = 0;
-            $scope.sl15_11 = 0;
-            $scope.sl20_11 = 0;
-            
+      
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_11 = value;
                 $scope.Tong5_11 +=1;
             }
             else{
-                $scope.sl5_11 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_11 = value;
                     $scope.Tong10_11 += 1;
                 }
                 else{
-                    $scope.sl10_11 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_11 = value;
                         $scope.Tong15_11 += 1;
                     }
                     else{
-                        $scope.sl15_11 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_11 = value;
                             $scope.Tong20_11 += 1;
                         }
-                        else{
-                            $scope.sl20_11 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -726,41 +599,28 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien12 =  function(value){
-            $scope.sl5_12 = 0;
-            $scope.sl10_12 = 0;
-            $scope.sl15_12 = 0;
-            $scope.sl20_12 = 0;
-            
+           
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_12 = value;
                 $scope.Tong5_12 +=1;
             }
             else{
-                $scope.sl5_12 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_12 = value;
                     $scope.Tong10_12 += 1;
                 }
                 else{
-                    $scope.sl10_12 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_12 = value;
                         $scope.Tong15_12 += 1;
                     }
                     else{
-                        $scope.sl15_12 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_12 = value;
                             $scope.Tong20_12 += 1;
                         }
-                        else{
-                            $scope.sl20_12 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -768,41 +628,28 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien13 =  function(value){
-            $scope.sl5_13 = 0;
-            $scope.sl10_13 = 0;
-            $scope.sl15_13 = 0;
-            $scope.sl20_13 = 0;
-            
+           
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_13 = value;
                 $scope.Tong5_13 +=1;
             }
             else{
-                $scope.sl5_13 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_13 = value;
                     $scope.Tong10_13 += 1;
                 }
                 else{
-                    $scope.sl10_13 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_13 = value;
                         $scope.Tong15_13 += 1;
                     }
                     else{
-                        $scope.sl15_13 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_13 = value;
                             $scope.Tong20_13 += 1;
                         }
-                        else{
-                            $scope.sl20_13 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -810,41 +657,28 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien14 =  function(value){
-            $scope.sl5_14 = 0;
-            $scope.sl10_14 = 0;
-            $scope.sl15_14 = 0;
-            $scope.sl20_14 = 0;
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_14 = value;
                 $scope.Tong5_14 +=1;
             }
             else{
-                $scope.sl5_14 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_14 = value;
                     $scope.Tong10_14 += 1;
                 }
                 else{
-                    $scope.sl10_14 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_14 = value;
                         $scope.Tong15_14 += 1;
                     }
                     else{
-                        $scope.sl15_14 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_14 = value;
                             $scope.Tong20_14 += 1;
                         }
-                        else{
-                            $scope.sl20_14 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -852,41 +686,28 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien15 =  function(value){
-            $scope.sl5_15 = 0;
-            $scope.sl10_15 = 0;
-            $scope.sl15_15 = 0;
-            $scope.sl20_15 = 0;
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_15 = value;
                 $scope.Tong5_15 +=1;
             }
             else{
-                $scope.sl5_15 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_15 = value;
                     $scope.Tong10_15 += 1;
                 }
                 else{
-                    $scope.sl10_15 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_15 = value;
                         $scope.Tong15_15 += 1;
                     }
                     else{
-                        $scope.sl15_15 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_15 = value;
                             $scope.Tong20_15 += 1;
                         }
-                        else{
-                            $scope.sl20_15 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -894,41 +715,28 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien16 =  function(value){
-            $scope.sl5_16 = 0;
-            $scope.sl10_16 = 0;
-            $scope.sl15_16 = 0;
-            $scope.sl20_16 = 0;
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_16 = value;
                 $scope.Tong5_16 +=1;
             }
             else{
-                $scope.sl5_16 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_16 = value;
                     $scope.Tong10_16 += 1;
                 }
                 else{
-                    $scope.sl10_16 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_16 = value;
                         $scope.Tong15_16 += 1;
                     }
                     else{
-                        $scope.sl15_16 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_16 = value;
                             $scope.Tong20_16 += 1;
                         }
-                        else{
-                            $scope.sl20_16 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -936,41 +744,29 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien17 =  function(value){
-            $scope.sl5_17 = 0;
-            $scope.sl10_17 = 0;
-            $scope.sl15_17 = 0;
-            $scope.sl20_17 = 0;
+            
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_17 = value;
                 $scope.Tong5_17 +=1;
             }
             else{
-                $scope.sl5_17 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_17 = value;
                     $scope.Tong10_17 += 1;
                 }
                 else{
-                    $scope.sl10_17 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_17 = value;
                         $scope.Tong15_17 += 1;
                     }
                     else{
-                        $scope.sl15_17 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_17 = value;
                             $scope.Tong20_17 += 1;
                         }
-                        else{
-                            $scope.sl20_17 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -978,41 +774,29 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien18 =  function(value){
-            $scope.sl5_18 = 0;
-            $scope.sl10_18 = 0;
-            $scope.sl15_18 = 0;
-            $scope.sl20_18 = 0;
+           
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_18 = value;
                 $scope.Tong5_18 +=1;
             }
             else{
-                $scope.sl5_18 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_18 = value;
                     $scope.Tong10_18 += 1;
                 }
                 else{
-                    $scope.sl10_18 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_18 = value;
                         $scope.Tong15_18 += 1;
                     }
                     else{
-                        $scope.sl15_18 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_18 = value;
                             $scope.Tong20_18 += 1;
                         }
-                        else{
-                            $scope.sl20_18 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -1020,83 +804,55 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien19 =  function(value){
-            $scope.sl5_19 = 0;
-            $scope.sl10_19 = 0;
-            $scope.sl15_19 = 0;
-            $scope.sl20_19 = 0;
             
-    
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_19 = value;
                 $scope.Tong5_19 +=1;
             }
             else{
-                $scope.sl5_19 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_19 = value;
                     $scope.Tong10_19 += 1;
                 }
                 else{
-                    $scope.sl10_19 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_19 = value;
                         $scope.Tong15_19 += 1;
                     }
                     else{
-                        $scope.sl15_19 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_19 = value;
                             $scope.Tong20_19 += 1;
                         }
-                        else{
-                            $scope.sl20_19 = 0;
-                        }
-                    }
+                    }    
                 }
             }
             $scope.Tong_19 = $scope.Tong5_19 + $scope.Tong10_19 + $scope.Tong15_19 + $scope.Tong20_19;
             
         }
         $scope.getSoLanHien20 =  function(value){
-            $scope.sl5_20 = 0;
-            $scope.sl10_20 = 0;
-            $scope.sl15_20 = 0;
-            $scope.sl20_20 = 0;
+         
             
-    
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_20 = value;
                 $scope.Tong5_20 +=1;
             }
             else{
-                $scope.sl5_20 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_20 = value;
                     $scope.Tong10_20 += 1;
                 }
                 else{
-                    $scope.sl10_20 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_20 = value;
                         $scope.Tong15_20 += 1;
                     }
                     else{
-                        $scope.sl15_20 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_20 = value;
                             $scope.Tong20_20 += 1;
                         }
-                        else{
-                            $scope.sl20_20 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -1104,83 +860,54 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien21 =  function(value){
-            $scope.sl5_21 = 0;
-            $scope.sl10_21 = 0;
-            $scope.sl15_21 = 0;
-            $scope.sl20_21 = 0;
             
-    
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_21 = value;
                 $scope.Tong5_21 +=1;
             }
             else{
-                $scope.sl5_21 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_21 = value;
                     $scope.Tong10_21 += 1;
                 }
                 else{
-                    $scope.sl10_21 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_21 = value;
                         $scope.Tong15_21 += 1;
                     }
                     else{
-                        $scope.sl15_21 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_21 = value;
                             $scope.Tong20_21 += 1;
                         }
-                        else{
-                            $scope.sl20_21 = 0;
-                        }
-                    }
+                    }   
                 }
             }
-            $scope.Tong_21 = $scope.Tong5_21 + $scope.Tong10_21 + $scope.Tong15_21 + $scope.Tong20_21;
-            
+            $scope.Tong_21 = $scope.Tong5_21 + $scope.Tong10_21 + $scope.Tong15_21 + $scope.Tong20_21; 
         }
+
         $scope.getSoLanHien22 =  function(value){
-            $scope.sl5_22 = 0;
-            $scope.sl10_22 = 0;
-            $scope.sl15_22 = 0;
-            $scope.sl20_22 = 0;
             
-    
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_22 = value;
                 $scope.Tong5_22 +=1;
             }
             else{
-                $scope.sl5_22 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_22 = value;
                     $scope.Tong10_22 += 1;
                 }
                 else{
-                    $scope.sl10_22 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_22 = value;
                         $scope.Tong15_22 += 1;
                     }
                     else{
-                        $scope.sl15_22 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_22 = value;
                             $scope.Tong20_22 += 1;
                         }
-                        else{
-                            $scope.sl20_22 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -1188,41 +915,28 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien23 =  function(value){
-            $scope.sl5_23 = 0;
-            $scope.sl10_23 = 0;
-            $scope.sl15_23 = 0;
-            $scope.sl20_23 = 0;
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_23 = value;
                 $scope.Tong5_23 +=1;
             }
             else{
-                $scope.sl5_23 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_23 = value;
                     $scope.Tong10_23 += 1;
                 }
                 else{
-                    $scope.sl10_23 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_23 = value;
                         $scope.Tong15_23 += 1;
                     }
                     else{
-                        $scope.sl15_23 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_23 = value;
                             $scope.Tong20_23 += 1;
                         }
-                        else{
-                            $scope.sl20_23 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -1230,41 +944,29 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien24 =  function(value){
-            $scope.sl5_24 = 0;
-            $scope.sl10_24 = 0;
-            $scope.sl15_24 = 0;
-            $scope.sl20_24 = 0;
+          
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_24 = value;
                 $scope.Tong5_24 +=1;
             }
             else{
-                $scope.sl5_24 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_24 = value;
                     $scope.Tong10_24 += 1;
                 }
                 else{
-                    $scope.sl10_24 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_24 = value;
                         $scope.Tong15_24 += 1;
                     }
                     else{
-                        $scope.sl15_24 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_24 = value;
                             $scope.Tong20_24 += 1;
                         }
-                        else{
-                            $scope.sl20_24 = 0;
-                        }
+                        
                     }
                 }
             }
@@ -1272,41 +974,30 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien25 =  function(value){
-            $scope.sl5_25 = 0;
-            $scope.sl10_25 = 0;
-            $scope.sl15_25 = 0;
-            $scope.sl20_25 = 0;
+
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_25 = value;
                 $scope.Tong5_25 +=1;
             }
             else{
-                $scope.sl5_25 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_25 = value;
                     $scope.Tong10_25 += 1;
                 }
                 else{
-                    $scope.sl10_25 = 0;
                     if(value >= 15 && value < 20){
                 
                         $scope.sl15_25 = value;
                         $scope.Tong15_25 += 1;
                     }
                     else{
-                        $scope.sl15_25 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_25 = value;
                             $scope.Tong20_25 += 1;
                         }
-                        else{
-                            $scope.sl20_25 = 0;
-                        }
+                      
                     }
                 }
             }
@@ -1314,41 +1005,29 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien26 =  function(value){
-            $scope.sl5_26 = 0;
-            $scope.sl10_26 = 0;
-            $scope.sl15_26 = 0;
-            $scope.sl20_26 = 0;
+         
             
     
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_26 = value;
                 $scope.Tong5_26 +=1;
             }
             else{
-                $scope.sl5_26 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_26 = value;
                     $scope.Tong10_26 += 1;
                 }
                 else{
-                    $scope.sl10_26 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_26 = value;
                         $scope.Tong15_26 += 1;
                     }
                     else{
-                        $scope.sl15_26 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_26 = value;
                             $scope.Tong20_26 += 1;
                         }
-                        else{
-                            $scope.sl20_26 = 0;
-                        }
+        
                     }
                 }
             }
@@ -1356,215 +1035,36 @@ app.factory('Excel', function($window) {
             
         }
         $scope.getSoLanHien27 =  function(value){
-            $scope.sl5_27 = 0;
-            $scope.sl10_27 = 0;
-            $scope.sl15_27 = 0;
-            $scope.sl20_27 = 0;
-            
-    
+
             if(value >= 5 && value < 10){
                 
-                $scope.sl5_27 = value;
                 $scope.Tong5_27 +=1;
             }
             else{
-                $scope.sl5_27 = 0;
                 if(value >= 10 && value < 15){
 
-                    $scope.sl10_27 = value;
                     $scope.Tong10_27 += 1;
                 }
                 else{
                     $scope.sl10_27 = 0;
                     if(value >= 15 && value < 20){
                 
-                        $scope.sl15_27 = value;
                         $scope.Tong15_27 += 1;
                     }
                     else{
-                        $scope.sl15_27 = 0;
                         if(value >= 20){
                 
-                            $scope.sl20_27 = value;
                             $scope.Tong20_27 += 1;
                         }
-                        else{
-                            $scope.sl20_27 = 0;
-                        }
+                  
                     }
                 }
             }
             $scope.Tong_27 = $scope.Tong5_27 + $scope.Tong10_27 + $scope.Tong15_27 + $scope.Tong20_27;
             
         }
-        
-
 
         $scope.xacnhan = function(tableId) {
-            $scope.Tong5_1 = 0;
-        $scope.Tong10_1= 0;
-        $scope.Tong15_1 = 0;
-        $scope.Tong20_1 = 0;
-        $scope.Tong_1 = 0;
-
-        $scope.Tong5_2 = 0;
-        $scope.Tong10_2= 0;
-        $scope.Tong15_2 = 0;
-        $scope.Tong20_2 = 0;
-        $scope.Tong_2 = 0;
-
-        $scope.Tong5_3 = 0;
-        $scope.Tong10_3= 0;
-        $scope.Tong15_3 = 0;
-        $scope.Tong20_3 = 0;
-        $scope.Tong_3 = 0;
-
-        $scope.Tong5_4 = 0;
-        $scope.Tong10_4= 0;
-        $scope.Tong15_4 = 0;
-        $scope.Tong20_4 = 0;
-        $scope.Tong_4 = 0;
-
-        $scope.Tong5_5 = 0;
-        $scope.Tong10_5= 0;
-        $scope.Tong15_5 = 0;
-        $scope.Tong20_5 = 0;
-        $scope.Tong_5 = 0;
-
-        $scope.Tong5_6 = 0;
-        $scope.Tong10_6= 0;
-        $scope.Tong15_6 = 0;
-        $scope.Tong20_6 = 0;
-        $scope.Tong_6 = 0;
-
-        $scope.Tong5_7 = 0;
-        $scope.Tong10_7= 0;
-        $scope.Tong15_7 = 0;
-        $scope.Tong20_7 = 0;
-        $scope.Tong_7 = 0;
-
-        $scope.Tong5_8 = 0;
-        $scope.Tong10_8= 0;
-        $scope.Tong15_8 = 0;
-        $scope.Tong20_8 = 0;
-        $scope.Tong_8 = 0;
-
-
-        $scope.Tong5_9 = 0;
-        $scope.Tong10_9= 0;
-        $scope.Tong15_9 = 0;
-        $scope.Tong20_9 = 0;
-        $scope.Tong_9 = 0;
-
-        $scope.Tong5_10 = 0;
-        $scope.Tong10_10= 0;
-        $scope.Tong15_10 = 0;
-        $scope.Tong20_10 = 0;
-        $scope.Tong_10 = 0;
-
-        $scope.Tong5_11 = 0;
-        $scope.Tong10_11= 0;
-        $scope.Tong15_11 = 0;
-        $scope.Tong20_11 = 0;
-        $scope.Tong_11 = 0;
-
-
-        $scope.Tong5_12 = 0;
-        $scope.Tong10_12= 0;
-        $scope.Tong15_12 = 0;
-        $scope.Tong20_12 = 0;
-        $scope.Tong_12 = 0;
-        
-
-        $scope.Tong5_13 = 0;
-        $scope.Tong10_13= 0;
-        $scope.Tong15_13 = 0;
-        $scope.Tong20_13 = 0;
-        $scope.Tong_13 = 0;
-
-        $scope.Tong5_14 = 0;
-        $scope.Tong10_14= 0;
-        $scope.Tong15_14 = 0;
-        $scope.Tong20_14 = 0;
-        $scope.Tong_14 = 0;
-
-        $scope.Tong5_15 = 0;
-        $scope.Tong10_15= 0;
-        $scope.Tong15_15 = 0;
-        $scope.Tong20_15 = 0;
-        $scope.Tong_15 = 0;
-
-        $scope.Tong5_16 = 0;
-        $scope.Tong10_16= 0;
-        $scope.Tong15_16 = 0;
-        $scope.Tong20_16 = 0;
-        $scope.Tong_16 = 0;
-
-        $scope.Tong5_17 = 0;
-        $scope.Tong10_17= 0;
-        $scope.Tong15_17 = 0;
-        $scope.Tong20_17 = 0;
-        $scope.Tong_17 = 0;
-
-        $scope.Tong5_18 = 0;
-        $scope.Tong10_18= 0;
-        $scope.Tong15_18 = 0;
-        $scope.Tong20_18 = 0;
-        $scope.Tong_18 = 0;
-
-        $scope.Tong5_19 = 0;
-        $scope.Tong10_19= 0;
-        $scope.Tong15_19 = 0;
-        $scope.Tong20_19 = 0;
-        $scope.Tong_19 = 0;
-
-        $scope.Tong5_20 = 0;
-        $scope.Tong10_20= 0;
-        $scope.Tong15_20 = 0;
-        $scope.Tong20_20 = 0;
-        $scope.Tong_20 = 0;
-
-        $scope.Tong5_21 = 0;
-        $scope.Tong10_21= 0;
-        $scope.Tong15_21 = 0;
-        $scope.Tong20_21 = 0;
-        $scope.Tong_21 = 0;
-
-        $scope.Tong5_22 = 0;
-        $scope.Tong10_22= 0;
-        $scope.Tong15_22 = 0;
-        $scope.Tong20_22 = 0;
-        $scope.Tong_22 = 0;
-
-        $scope.Tong5_23 = 0;
-        $scope.Tong10_23= 0;
-        $scope.Tong15_23 = 0;
-        $scope.Tong20_23 = 0;
-        $scope.Tong_23 = 0;
-
-        $scope.Tong5_24 = 0;
-        $scope.Tong10_24= 0;
-        $scope.Tong15_24 = 0;
-        $scope.Tong20_24 = 0;
-        $scope.Tong_24 = 0;
-
-        $scope.Tong5_25 = 0;
-        $scope.Tong10_25= 0;
-        $scope.Tong15_25 = 0;
-        $scope.Tong20_25 = 0;
-        $scope.Tong_25 = 0;
-
-        $scope.Tong5_26 = 0;
-        $scope.Tong10_26= 0;
-        $scope.Tong15_26 = 0;
-        $scope.Tong20_26 = 0;
-        $scope.Tong_26 = 0;
-
-        $scope.Tong5_27 = 0;
-        $scope.Tong10_27= 0;
-        $scope.Tong15_27 = 0;
-        $scope.Tong20_27 = 0;
-        $scope.Tong_27 = 0;
             
             $exportHref = Excel.tableToExcel(tableId, 'sheet name');
             $timeout(function() { location.href = $exportHref; }, 100); // trigger download

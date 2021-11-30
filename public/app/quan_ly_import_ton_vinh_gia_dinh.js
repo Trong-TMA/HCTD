@@ -55,5 +55,17 @@ app.controller('quan_ly_import_ton_vinh_gia_dinhController', function($scope, $h
             $scope.IsVisible = true;
         });
     };
+
+    $scope.ID = null;
+    $scope.getTT = function(Id){
+
+        if(Id == null){
+            Id = $scope.ID;
+            $scope.ID =Id;
+        }
+        else{
+            $scope.ID = Id;
+        }
+    }
     
 });

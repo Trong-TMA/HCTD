@@ -151,3 +151,4 @@ Route::get('getList_nguoihienmau',['uses'=>'App\Http\Controllers\TonghoptonvinhC
 Route::get('getList_donvi',['uses'=>'App\Http\Controllers\TonghoptonvinhController@getList_donvi']);
 
 Route::get('get_giadinhhienmau',['uses'=>'App\Http\Controllers\GiaDinhController@get_giadinhhienmau']);
+Route::post('fileupload',['uses'=>'App\Http\Controllers\GiaDinhController@fileupload']);
